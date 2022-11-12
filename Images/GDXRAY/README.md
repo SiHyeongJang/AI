@@ -22,4 +22,9 @@
 •	GDxray 쥬피터 노트북 파일 : inspect_model.ipynb
 •	진행중인 내용(백그라운드) python gdxray.py evaluate ~
 	- 로그 파일 확인시 tail 사용하는걸 추천(vi,vim 사용 X)
-
+진행 완료 사항
+파일 : inspect_model.ipynb
+아래의 코드, 그림나오는 부분까지 진행 확인 완료
+# Display positive anchors before refinement (dotted) and
+# after refinement (solid).
+visualize.draw_boxes(image, boxes=positive_anchors, refined_boxes=refined_anchors, ax=get_ax())
