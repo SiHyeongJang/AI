@@ -1,5 +1,10 @@
 # AI
-- AI 관련 자료 정리
+[Images]
+1. GDXRAY : 스마트 팩토리 관련 구현해보기(해당 GitHub 중단됨)
+2. Tesseract-OCR : 캡쳐 후 번역 프로그램 만들기
+
+[DB]
+1.MongoDB : UTC, KST 쉽게 Select하는 패키지 만들기
 
 # Python
 - 3.5 : type hint (typing ,mypy)
