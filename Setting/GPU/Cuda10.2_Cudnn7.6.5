@@ -1,0 +1,13 @@
+https://github.com/SoonbeomChoi/DiffSinger
+위 github를 사용하기 위해, GPU 환경 구축
+
+현재 window 10에 설치함. CUDA, CUDNN 버전 맞춰야함 Tensorflow 버전별 요구 조건이 다르기에 확인 후 진행
+
+설치 방법 참고 : https://afsdzvcx123.tistory.com/entry/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-Windows%EC%9C%88%EB%8F%84%EC%9A%B0-CUDA-cuDNN-%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95
+버전 확인 : https://beelinekim.tistory.com/65
+
+# cmd창
+순서대로, CUDA 버전, 그래픽카드 버전, CUDNN버전 확인
+nvcc -V
+nvidia-smi
+type cudnn.h | find "CUDNN_MAJOR"
