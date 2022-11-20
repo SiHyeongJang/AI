@@ -1,3 +1,7 @@
+# Coding
+1. 클린코드
+2. 
+
 # AI
 [Images]
 1. GDXRAY : 스마트 팩토리 관련 구현해보기(해당 GitHub 중단됨)
