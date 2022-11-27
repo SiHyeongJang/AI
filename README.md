@@ -1,6 +1,6 @@
 # Coding
 1. 클린코드
-2. 
+2. Process & Thread
 
 # AI
 [Images]
