@@ -1,0 +1,5 @@
+# 자리수 보정
+df.time=df.time.map(lambda x : ':'.join(x.split(':')[:3]) )
+df.time=df.time.map(lambda x : x.split('.')[0] if len(x.split('.'))==2 else  x) 
+# 형식 변환 : string,timestamp to datetime
+df.time=df.time.map(lambda x : datetime.strptime(x,'%Y-%m-%d %H:%M:%S') if len(x.split(':'))>1 else datetime.fromtimestamp(int(x)/1000) )
