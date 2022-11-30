@@ -1,0 +1,74 @@
+import copy
+from multiprocessing import Pool 
+from datetime import timedelta
+
+def pool_job(i):
+    try :
+        dft=pd.read_csv(data_l[i],encoding='utf-8-sig',dtype={'signalname': 'str', 'value': 'str'},parse_dates=['updatedate','enddate'])
+        
+        data_c=tof(dft.enddate[:3])
+        # 시작 종료 일자 입력
+        start=str(data_c[0].year)+'-'+str(data_c[0].month)+'-'+str(data_c[0].day)
+        data_cd=data_c[0]+timedelta(days=1)
+        end=str(data_cd.year)+'-'+str(data_cd.month)+'-'+str(data_cd.day)
+
+        date_rnage=pd.date_range(start,end, freq='5min')
+        df=pd.DataFrame()
+        df["USG_STD_DTM"]=date_rnage[:-1]
+        df['USG_END_DTM']=date_rnage[1:]
+
+        df1=df.copy()
+        df2=df.copy()
+        df3=df.copy()
+        df1['FCLTS_NM']='MCT1'
+        df2['FCLTS_NM']='MCT2'
+        df3['FCLTS_NM']='MCT3'
+        td1=pd.concat([df1,df2,df3])
+        td1=td1.reset_index(drop=True)
+        # 5분단위로 짤라서 일괄 insert
+        td1['CNTNC_TM']=300
+        # insert 할 컬럼 생성
+        td1['FCLTS_STS']=''
+
+        # 제품 생산쪽만 확인
+        dfp=dft.loc[dft.signalname.str.contains('PartsNumAll_path1_MCT'),:].reset_index()
+        dfp.head()
+        # enddate 컬럼 타입 변경
+        dfp.enddate=tof(dfp.enddate)
+
+        # 제품 생산 기준으로 체크
+        l1=[]
+        for index,data in td1.iterrows():
+            condi1=(dfp.enddate>= data.USG_STD_DTM) & (dfp.enddate<=data.USG_END_DTM )
+            if data.FCLTS_NM in  list(dfp[condi1].L1Name) :
+                l1.append(0)
+            else:
+                l1.append(1)
+
+        td1.FCLTS_STS=l1
+
+        # disconnect 부분 확인해서 처리할려고했지만 없음 = 2로 처리할 예정
+        disc=dft.loc[dft.signalname.str.contains('DISCONNECT'),:].reset_index()
+        print(start,'날짜 0 : ',sum(td1.FCLTS_STS==0),'// 1 : ',sum(td1.FCLTS_STS==1),' DISCONNECT : ',disc.shape[0])
+        if disc.empty:
+            pass
+        else :
+            disc.to_csv('dis_'+str(i),encoding='utf-8-sig')
+
+
+
+    except Exception as e:    # 모든 예외의 에러 메시지를 출력할 때는 Exception을 사용
+        print(i,'번째 파일, 에러확인 : ', e)
+    return td1
+
+
+
+if __name__=='__main__':
+
+    start_time = time.time()
+    pool = Pool(processes=10)
+
+    result = pd.concat( pool.map(pool_job, list(range(0, len(data_l) )) ) )
+    pool.close()
+    pool.join()
+    print('시간 확인 :',(time.time() - start_time))
