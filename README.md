@@ -1,11 +1,11 @@
 # Coding
 1. 클린코드
-2. Process & Thread
+2. Process & Thread 폴더 - 파이썬 멀티 프로세싱 (함수 FOR문 돌리기 - multiprocessing 라이브러리 - pool 활용)
 
 # AI
 [Images]
 1. GDXRAY : 스마트 팩토리 관련 구현 확인(해당 GitHub 중단됨)
-2. Tesseract-OCR : 캡쳐 후 번역 프로그램 만들기 - 현재 쥬피터노트북 코드로만 생성완료 // 이후해야할 작업 (프로그램화, 설치경로 변경 기능, 정확도 높이기)
+2. Tesseract-OCR : 캡쳐 후 번역 프로그램 만들기 [Image 활용 (이미지 생성) -> Tesseract-OCR 활용 - 설치필요  (OCR : 이미지-> 영어 추출) -> googletrans 라이브러리 (구글 번역 : 영어-> 한글) -> tkinter 라이브러리 (GUI 구성)]
 
 [DB]
 1.MongoDB : UTC, KST 쉽게 Select하는 패키지 만들기
