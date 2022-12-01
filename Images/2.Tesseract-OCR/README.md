@@ -5,7 +5,8 @@
 4. GUI 환경 구성 - tkinter 패키지 활용
 
 이후 작업
-
+- 현재 쥬피터노트북 코드로만 생성완료 
+- 프로그램화, Tesseract 설치경로 변경 기능 추가, 정확도 높이기 + @
 
 # 이슈사항
 - 파파고 -> 구글번역기, (papago 이슈사항: https://github.com/Beomi/pypapago/issues/4 )
