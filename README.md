@@ -4,8 +4,8 @@
 
 # AI
 [Images]
-1. GDXRAY : 스마트 팩토리 관련 구현해보기(해당 GitHub 중단됨)
-2. Tesseract-OCR : 캡쳐 후 번역 프로그램 만들기
+1. GDXRAY : 스마트 팩토리 관련 구현 확인(해당 GitHub 중단됨)
+2. Tesseract-OCR : 캡쳐 후 번역 프로그램 만들기 - 현재 쥬피터노트북 코드로만 생성완료 // 이후해야할 작업 (프로그램화, 설치경로 변경 기능, 정확도 높이기)
 
 [DB]
 1.MongoDB : UTC, KST 쉽게 Select하는 패키지 만들기
