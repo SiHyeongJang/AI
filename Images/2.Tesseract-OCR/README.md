@@ -1,7 +1,11 @@
 # 프로그래밍 순서
 1. image -> Tesseract-OCR 테스트
 2. 번역
-3. 프로그램 구성
+3. 프로그램 코드
+4. GUI 환경 구성 - tkinter 패키지 활용
+
+이후 작업
+
 
 # 이슈사항
 - 파파고 -> 구글번역기, (papago 이슈사항: https://github.com/Beomi/pypapago/issues/4 )
