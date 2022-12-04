@@ -1,6 +1,6 @@
 # 개발 환경
      OS : window10 PC
-     Graphics Card : RTX 3090
+     Graphics Card : RTX 3080
 
 # 도커
       Docker version : 20.10.21, build baeda1f
