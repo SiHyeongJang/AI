@@ -11,6 +11,10 @@ CONTAINER Name : jsh
 # Coding
 1. 클린코드 관련
 2. Process & Thread 폴더 - 파이썬 멀티 프로세싱 (함수 FOR문 돌리기 - multiprocessing 라이브러리 - pool 활용)
+3. Dynamic Programming
+4. sourcedefender (암호화 라이브러리)
+
+[999] 간단하게 사용할 수 있는 코딩 : String to Datetime, 인자전달받기, 하위폴더탐색
 
 # AI
 ## Images
