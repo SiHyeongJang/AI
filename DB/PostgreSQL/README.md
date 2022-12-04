@@ -9,11 +9,12 @@
                 rbt_lbl=pd.DataFrame(rows)
         connection.close()
 
-# 파이썬에서 interval로 날리면 인식 못 하는점 있는것 같음
+
 ## 아래와 같이 정의 between A and B (범위 A(작은범위)~B(큰범위 )
-sql3_3='select * from k.public."테이블명" where "타겟날짜" between {condition1}::timestamp and {condition3}::timestamp '.format(
-condition1 = "'"+[날짜등등]+"'",
-condition3 ="'"+[날짜등등].strftime('%Y-%m-%d %H:%M:%S')+"'" )
+파이썬에서 interval로 날리면 인식 못 하는점 있는것 같음
+        sql3_3='select * from k.public."테이블명" where "타겟날짜" between {condition1}::timestamp and {condition3}::timestamp '.format(
+        condition1 = "'"+[날짜등등]+"'",
+        condition3 ="'"+[날짜등등].strftime('%Y-%m-%d %H:%M:%S')+"'" )
 
 
 # INSERT
