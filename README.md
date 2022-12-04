@@ -19,7 +19,10 @@ CONTAINER Name : jsh
  -캡쳐 후 번역 프로그램 만들기 [Image 활용 (이미지 생성) -> Tesseract-OCR 활용 - 설치필요  (OCR : 이미지-> 영어 추출) -> googletrans 라이브러리 (구글 번역 : 영어-> 한글) -> tkinter 라이브러리 (GUI 구성)]
 999. GDXRAY : 스마트 팩토리 관련 구현 확인(해당 GitHub 중단됨)
 [DB]
-1.MongoDB : UTC, KST 쉽게 Select하는 패키지 만들기
+1. MongoDB : UTC, KST 쉽게 Select하는 패키지 만들기,sourcedefender 라이브러리(암호화)
+2. PostgreSQL : DB연결 및 BETWEEN, 현재 상태 값 테이블 로직
+3. HIVE : DB연결 및 SELECT
+4. ORACLE : 시노님관련 이슈 해결
 
 # Python
 - 3.5 : type hint (typing ,mypy)
