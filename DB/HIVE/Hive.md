@@ -5,6 +5,7 @@ hiveconn = hive_connect(host='IP',
                user='n',
                password='n',
                auth_mechanism='PLAIN')
+               
 # SQL
 sql='''
 넣기
