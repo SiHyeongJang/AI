@@ -1,5 +1,6 @@
 # 커넥션
-##select to DataFrame
+## select to DataFrame
+
 connection = psycopg2.connect("host=ip dbname=k user=k password=pw port=숫자포트")
         cur = connection.cursor()
         # 쿼리 날리기
@@ -13,7 +14,7 @@ connection.close()
 ## 아래와 같이 정의 between A and B (범위 A(작은범위)~B(큰범위 )
 sql3_3='select * from k.public."테이블명" where "타겟날짜" between {condition1}::timestamp and {condition3}::timestamp '.format(
 condition1 = "'"+[날짜등등]+"'",
-condition3 ="'"+[날짜등등].strftime('%Y-%m-%d %H:%M:%S')+"'",
+condition3 ="'"+[날짜등등].strftime('%Y-%m-%d %H:%M:%S')+"'" )
 
 
 # INSERT
@@ -24,8 +25,10 @@ engine = create_engine("postgresql://user:pw@IP:PORT/k")
                   if_exists = 'append',
                   index = False
                   )
+                  
     except Exception as e:    
         print('save_P_DN8_STATUS 에러 발생 코드 :', e)
+        
     finally:
         engine.dispose()  
 
