@@ -18,14 +18,14 @@ condition3 ="'"+[날짜등등].strftime('%Y-%m-%d %H:%M:%S')+"'" )
 
 
 # INSERT
-engine = create_engine("postgresql://user:pw@IP:PORT/k")
+
+     engine = create_engine("postgresql://user:pw@IP:PORT/k")
         df.to_sql(name = 'F_PRDCN_STS',
                   con = engine,
                   schema = 'public',
                   if_exists = 'append',
                   index = False
-                  )
-                  
+                  )             
     except Exception as e:    
         print('save_P_DN8_STATUS 에러 발생 코드 :', e)
         
