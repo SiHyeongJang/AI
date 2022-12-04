@@ -1,11 +1,11 @@
 # 개발 환경
- OS : window10 PC
- Graphics Card : RTX 3090
+     OS : window10 PC
+     Graphics Card : RTX 3090
 
 # 도커
- Docker version : 20.10.21, build baeda1f
- CONTAINER Name : jsh
-  : 아나콘다, cuda11.2, cudnn8.1, tensorflow=2.10.0
+      Docker version : 20.10.21, build baeda1f
+      CONTAINER Name : jsh
+       : 아나콘다, cuda11.2, cudnn8.1, tensorflow=2.10.0
 
 
 # Coding
