@@ -1,14 +1,13 @@
 # 커넥션
 ## select to DataFrame
 
-connection = psycopg2.connect("host=ip dbname=k user=k password=pw port=숫자포트")
-        cur = connection.cursor()
-        # 쿼리 날리기
-        cur.execute(sql2)
-        rows=cur.fetchall()
-        rbt_lbl=pd.DataFrame(rows)
-        
-connection.close()
+        connection = psycopg2.connect("host=ip dbname=k user=k password=pw port=숫자포트")
+                cur = connection.cursor()
+                # 쿼리 날리기
+                cur.execute(sql2)
+                rows=cur.fetchall()
+                rbt_lbl=pd.DataFrame(rows)
+        connection.close()
 
 # 파이썬에서 interval로 날리면 인식 못 하는점 있는것 같음
 ## 아래와 같이 정의 between A and B (범위 A(작은범위)~B(큰범위 )
