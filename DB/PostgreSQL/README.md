@@ -6,6 +6,7 @@ connection = psycopg2.connect("host=ip dbname=k user=k password=pw port=숫자�
         cur.execute(sql2)
         rows=cur.fetchall()
         rbt_lbl=pd.DataFrame(rows)
+        
 connection.close()
 
 # 파이썬에서 interval로 날리면 인식 못 하는점 있는것 같음
