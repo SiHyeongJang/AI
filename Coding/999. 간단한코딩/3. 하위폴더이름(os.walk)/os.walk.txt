@@ -1,0 +1,11 @@
+l1=[]
+import os
+
+for (path, dir, files) in os.walk("d:폴더/"):
+    for filename in files:
+        ext = os.path.splitext(filename)[-1]
+        # 파일이름
+        l1.append(filename)
+#         # 파일 패쓰
+#         l1.append(path)
+

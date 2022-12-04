@@ -1,0 +1,6 @@
+apt-get install~
+apt install 
+
+위 명령어 차이 :
+apt를 쓰든 apt-get(또는 apt-cache)을 쓰든 내부 동작의 차이는 거의 없음.
+스크립트 작성시 apt-get이 더 유리함, 옵션이 많음(안정적이고 호환성이 높음)

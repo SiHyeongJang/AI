@@ -1,0 +1,8 @@
+https://hanamon.kr/orm%EC%9D%B4%EB%9E%80-nodejs-lib-sequelize-%EC%86%8C%EA%B0%9C/
+
+ORM은 Object Relational Mapping(객체-관계-매핑)의 약자이다.
+ORM은 객체와 데이터베이스의 관계를 매핑해주는 도구이다.
+ORM은 프로그래밍 언어의 객체와 관계형 데이터베이스의 데이터를 자동으로 매핑(연결)해주는 도구이다.
+ORM은 프로그래밍 언어의 객체와 관계형 데이터베이스 사이의 중계자(통역자) 역할을 한다.
+ORM은 MVC 패턴에서 모델(Model)을 기술하는 도구이다.
+ORM은 객체와 모델 사이의 관계를 기술하는 도구이다.

@@ -1,0 +1,39 @@
+docker run -it --rm  -p 8888:8888 teddylee777/docker-kaggle-ko:latest 
+시도했으나 다양한 에러로 인해 실패, 기본적인 cuda-cudnn만 깔아서 그 위에 올려야할 듯
+혹시나, 에러시 그래픽카드 드라이버 재설치 DDU  툴로 깔끔하게 지우고 재설치 진행
+
+# 이미지 -> 컨테이너 생성
+docker run -it --gpus all --name jsh --restart=always  -p 8888:8888  nvidia/cuda:11.2.0-cudnn8-devel-ubuntu18.04 /bin/bash
+# 추후 - 포트 추가로 텐서보드 연계 예정  -p 6006:6006
+
+
+접속 : docker exec -it jsh /bin/bash
+# 업데이트부터 해줘야함
+apt-get update
+apt-get install software-properties-common
+
+# 파이썬 3.11 설치 및 심볼링 링크 확인
+ln -s /usr/bin/python3.11 /usr/bin/python
+
+# 파이썬 3.11 로 설치했다가 아나콘다로 바꿈
+https://thinmug.tistory.com/51 참고
+
+# 아나콘다 패스설정 (vi ~/.bashrc -> 이후 source)
+export PATH="/root/anaconda3/bin:$PATH"
+
+# 가상환경 생성
+conda create -n jsh python=3.7
+
+# 에러시 조치사항 (conda activate jsh)
+source /root/anaconda3/etc/profile.d/conda.sh
+
+# 쥬피터노트북 세팅
+URL 세팅 참고
+https://soundprovider.tistory.com/entry/DockerJupyter-%EC%9B%90%EA%B2%A9-%EC%A3%BC%ED%94%BC%ED%84%B0-%EC%84%9C%EB%B2%84-Container%EB%A1%9C-%EB%9D%84%EC%9A%B0%EA%B8%B0
+
+# 커널 추가
+python -m ipykernel install --user --name jsh --display-name "jsh"
+
+# 쥬피터노트북  백그라운드 실행
+conda activate jsh
+nohup jupyter notebook --ip 0.0.0.0 --allow-root &
