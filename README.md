@@ -21,7 +21,14 @@
 1. stable-diffusion-tensorflow : 도커 환경을 통한 stable-diffusion 테스트 및 구현
 2. Tesseract-OCR : 이미지 캡쳐 후 번역하기 (기능 : 전체화면 번역, 선택창 번역(선택하고R클릭), 범위 번역 (R~R-R클릭범위))
  -캡쳐 후 번역 프로그램 만들기 <Image 활용 (이미지 생성) -> Tesseract-OCR 활용 - 설치필요  (OCR : 이미지-> 영어 추출) -> googletrans 라이브러리 (구글 번역 : 영어-> 한글) -> tkinter 라이브러리 (GUI 구성)>
+ 3. 숫자 인식(사진 -> 동영상 딜미터기 만들어보기 - 계획중)
 999. GDXRAY : 스마트 팩토리 관련 구현 확인(해당 GitHub 중단됨)
+
+## NLP
+1. KoBERT 학습 -> KorQuAD 2.0 도전
+
+## Model
+1. Logistic regression
 
 ## DB
 1. MongoDB : UTC, KST 쉽게 Select하는 패키지 만들기,sourcedefender 라이브러리(암호화)
