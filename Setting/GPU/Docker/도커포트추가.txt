@@ -1,0 +1,12 @@
+# 포트 추가
+동적으로 바로는 안 되고, 컨테이너 -> 이미지 -> 컨테이너 순으로 해야함
+
+// container name = jsh
+docker stop jsh
+docker commit jsh jsh1
+
+# 이미지 확인
+docker images
+
+# 포트 추가, host명 추가
+docker run -it --gpus all --name jsh  --hostname study --restart=always  -p 8888:8888 -p 6006:6006 -p 9200:9200 -p 9300:9300 jsh1 /bin/bash

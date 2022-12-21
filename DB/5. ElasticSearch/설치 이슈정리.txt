@@ -1,0 +1,27 @@
+# 윈도우 도커에서 사용해서 이슈가 많았음
+
+
+# 에러 내용 : bootstrap check failure [1] of [1] : max virtual memory areas vm.max_map_count [65530] is too low, increase to at least
+vm.max_map_count 이슈 - URL : https://chocobini.tistory.com/131
+1. Power shell 오픈
+2. wsl -d docker-desktop
+3. sysctl -w vm.max_map_count=262144
+
+# 에러내용 : the default discovery settings are unsuitable for production use; at least one of [discovery.seed_hosts, discover
+y.seed_providers, cluster.initial_master_nodes] must be configured
+
+## host명, ip 및 port 세팅 
+vim /etc/elasticsearch/elasticsearch.yml
+cluster.name: "elk-cluster-1"
+node.name: "node-1"
+network.host: "_site_"
+discovery.seed_hosts: ["study"] # 호스트명 확인
+cluster.initial_master_nodes: ["node-1"]
+
+# 서비스 상태 확인
+service elasticsearch start
+service elasticsearch status
+
+# 테스트 - 호스트 명 확인
+curl -XGET localhost:9200 # 호스트명 study로 해서 아래명령어로 실행
+curl -XGET study:9200
