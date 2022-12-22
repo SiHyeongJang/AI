@@ -1,0 +1,8 @@
+# URL : https://juhpark.tistory.com/22
+# 영구적용
+wsl -d docker-desktop  # docker의 시스템 콘솔화면으로 진입이된다.
+
+# vi 편집기를 사용하여 /etc/sysctl.conf 파일을 열고 아래 문장을 추가한다.
+vi /etc/sysctl.conf
+
+vm.max_map_count=262144

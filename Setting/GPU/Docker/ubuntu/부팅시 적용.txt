@@ -9,8 +9,8 @@ conda activate jsh
 nohup jupyter notebook --ip 0.0.0.0 --allow-root &
 
 # 작성 스크립트 적용
-chmod 755 s_jupyter.sh
-update-rc.d s_jupyter.sh defaults
+chmod 755 starth.sh
+update-rc.d starth.sh defaults
 
 # 도커 컨테이너 적용 안 되는 부분
 - 부팅시 자동 스크립트를 작성했지만, 도커 컨테이너 start 후 접속해보니 바로 적용이 안 됨

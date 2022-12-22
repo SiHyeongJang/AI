@@ -1,0 +1,14 @@
+# 컨테이너 커밋 후 (정지 상태일 때)
+docker commit jsh jsh
+# 빌드
+docker build -f dockerfile.txt  --tag jsh1:test .
+
+# 빌드 후 실행확인
+docker run -it --gpus all --name jsh  --hostname study --restart=always  -p 8888:8888 -p 5601:5601 -p 6006:6006 -p 9200:9200 -p 9300:9300 jsh1:test
+
+
+# 확인 ps -ef 로 확인해도 됨, 현재 3번째 logstash가 실행 안 될 때 있음
+service kibana status 
+service logstash status 
+
+service logstash start

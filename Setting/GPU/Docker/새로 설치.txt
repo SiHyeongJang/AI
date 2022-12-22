@@ -1,0 +1,95 @@
+# 도커 생성 현재 jsh commit 기준 확인 - 생성시 태그 확인
+docker run -it --gpus all --name jsh  --hostname study --restart=always  -p 8888:8888 -p 5601:5601 -p 6006:6006 -p 9200:9200 -p 9300:9300 jsh:latest /bin/bash
+
+# 콘다 가상 환경 3.7 생성
+conda create -n jsh python=3.7
+conda activate jsh
+
+# 텐서플로우 - stable-diffusion 설치
+git clone https://github.com/divamgupta/stable-diffusion-tensorflow.git
+
+
+cd stable-diffusion-tensorflow/
+conda install jupyter notebook
+conda install ipykernel
+python -m ipykernel install --user --name jsh --display-name "jsh"
+pip install -r requirements.txt
+
+# URL : https://asung123456.tistory.com/33
+[python]
+from notebook.auth import passwd
+passwd()
+
+c.NotebookApp.port = 8888
+c.NotebookApp.allow_origin = '*'
+c.NotebookApp.notebook_dir = '/'
+c.NotebookApp.password = 'argon2:$argon2id$v=19$m=10240,t=10,p=8$oHoQ0+EVD6/LdvLo20Oy0Q$mEHocR2/BdFaQhBjOT6NiMu3BetWBG63+6nnSlcIdYo'
+
+# 시작시 적용 파일 작성
+vi /etc/init.d/start.sh
+
+. /root/anaconda3/etc/profile.d/conda.sh
+conda activate jsh
+nohup jupyter notebook --ip 0.0.0.0 --allow-root &
+service elasticsearch start
+sleep 5
+service kibana start
+sleep 5
+service logstash start
+/bin/bash
+
+
+# 작성 스크립트 적용
+chmod 755 start.sh
+update-rc.d start.sh defaults
+
+# 최종 파일 시작 적용
+/etc/init.d/start.sh
+
+add-apt-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java8-installer
+
+
+apt-get -y install oracle-java8-installer
+
+# ELK 설치, URL : https://pinggoopark.tistory.com/111
+## java 부터 설치
+vi ~/.bashrc
+환경변수
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+export Class_PATH=$JAVA_HOME/lib:$CLASS_PATH
+source ~/.bashrc
+
+## elasticsearch 설치
+vim /etc/elasticsearch/elasticsearch.yml
+cluster.name: "elk-cluster-1"
+node.name: "node-1"
+network.host: "_site_"
+discovery.seed_hosts: ["study"] # 호스트명 확인
+cluster.initial_master_nodes: ["node-1"]
+
+service elasticsearch start
+service elasticsearch status 
+### 테스트 - 호스트 명 확인
+curl -XGET localhost:9200 # 호스트명 study로 해서 아래명령어로 실행
+curl -XGET study:9200
+
+## kibana
+apt-get install kibana
+vi /etc/kibana/kibana.yml
+
+server.port: 5601
+server.host: "study"
+elasticsearch.hosts: ["http://study:9200"]
+
+service kibana status
+## logstash
+apt-get install logstash
+service logstash status 
+
+
+
+
+
