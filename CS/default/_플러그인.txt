@@ -1,0 +1,12 @@
+# 플러그인
+
+플러그인이란 간단하게 기존의 기능을 확장할 수 있게 도와주는 프로그램
+cd /usr/share/elasticsearch
+위 명령어 후 (포트 열린거 확인)
+git clone https://github.com/mobz/elasticsearch-head.git
+cd elasticsearch-head
+npm install
+npm run start
+
+
+

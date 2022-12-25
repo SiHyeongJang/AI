@@ -6,3 +6,8 @@ wsl -d docker-desktop  # docker의 시스템 콘솔화면으로 진입이된다.
 vi /etc/sysctl.conf
 
 vm.max_map_count=262144
+
+# 임시조치
+1. Power shell 오픈
+2. wsl -d docker-desktop
+3. sysctl -w vm.max_map_count=262144

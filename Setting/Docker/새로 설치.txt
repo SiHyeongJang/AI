@@ -46,23 +46,19 @@ update-rc.d start.sh defaults
 # 최종 파일 시작 적용
 /etc/init.d/start.sh
 
-add-apt-repository ppa:webupd8team/java
-apt-get update
-apt-get install oracle-java8-installer
-
-
-apt-get -y install oracle-java8-installer
-
 # ELK 설치, URL : https://pinggoopark.tistory.com/111
-## java 부터 설치
+## 나중에 공부 더 잘 정리되어있는 부분: https://chagaun.net/Contact/Market?page=1&id=11&m=v
+## java 부터 설치 - 버전 8->11 , https://triest.tistory.com/48
+apt install openjdk-11-jdk 
 vi ~/.bashrc
 환경변수
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 export Class_PATH=$JAVA_HOME/lib:$CLASS_PATH
 source ~/.bashrc
 
 ## elasticsearch 설치
+## apt-cache policy elasticsearch 버전 확인 후 설치
 vim /etc/elasticsearch/elasticsearch.yml
 cluster.name: "elk-cluster-1"
 node.name: "node-1"
@@ -76,6 +72,10 @@ service elasticsearch status
 curl -XGET localhost:9200 # 호스트명 study로 해서 아래명령어로 실행
 curl -XGET study:9200
 
+#### elasicsearch sql 설치
+cd /usr/share/elasticsearch
+./bin/elasticsearch-plugin install https://github.com/NLPchina/elasticsearch-sql/releases/download/7.17.7.0/elasticsearch-sql-7.17.7.0.zip
+
 ## kibana
 apt-get install kibana
 vi /etc/kibana/kibana.yml
@@ -88,6 +88,7 @@ service kibana status
 ## logstash
 apt-get install logstash
 service logstash status 
+service logstash start 
 
 
 

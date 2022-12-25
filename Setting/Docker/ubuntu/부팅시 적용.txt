@@ -15,3 +15,4 @@ update-rc.d starth.sh defaults
 # 도커 컨테이너 적용 안 되는 부분
 - 부팅시 자동 스크립트를 작성했지만, 도커 컨테이너 start 후 접속해보니 바로 적용이 안 됨
 - 도커 컨테이너 start는 우분투 실행과는 다른것으로 판단되어, ~/.bashrc에 alias에 자동 등록하여 사용 예정 (start_jsh.png)
+alias start='bash /etc/init.d/start.sh'

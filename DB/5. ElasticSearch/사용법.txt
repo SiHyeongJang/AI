@@ -1,0 +1,8 @@
+curl -XPOST 'study:9200/culinary/developer/1' -d '
+{
+"name" : "culinarydeveloper",
+"siteURL" : "culinarydeveloper.tistory.com",
+"since" : "2016.01.01"
+}'
+
+

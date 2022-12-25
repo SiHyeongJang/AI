@@ -1,0 +1,9 @@
+# 재설치
+apt-get --purge autoremove elasticsearch
+rm -rf /var/lib/elasticsearch/
+rm -rf /etc/elasticsearch
+
+# 참고 :  https://chagaun.net/Contact/Market?page=1&id=11&m=v
+## apt-cache policy elasticsearch 버전 확인 후 설치
+
+ES_JAVA_HOME
