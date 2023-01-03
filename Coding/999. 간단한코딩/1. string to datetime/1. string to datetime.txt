@@ -4,9 +4,19 @@ df.time=df.time.map(lambda x : x.split('.')[0] if len(x.split('.'))==2 else  x)
 # 형식 변환 : string,timestamp to datetime
 df.time=df.time.map(lambda x : datetime.strptime(x,'%Y-%m-%d %H:%M:%S') if len(x.split(':'))>1 else datetime.fromtimestamp(int(x)/1000) )
 
+#import datetime에 따라서 1,2번으로 나뉨 체크
+
 # 자리수보정 KST로만든 STRING
 def tof(x) :
     x=x.map(lambda x : str(x).replace('.500000+09:00','') )
     x=x.map(lambda x : str(x).replace('+09:00','') )
     x=x.map(lambda x : datetime.datetime.strptime(x,'%Y-%m-%d %H:%M:%S') )
+    return x
+
+
+# 자리수보정 KST로만든 STRING
+def tof(x) :
+    x=x.map(lambda x : str(x).replace('.500000+09:00','') )
+    x=x.map(lambda x : str(x).replace('+09:00','') )
+    x=x.map(lambda x : datetime.strptime(x,'%Y-%m-%d %H:%M:%S') )
     return x
