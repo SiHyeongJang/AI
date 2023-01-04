@@ -53,7 +53,8 @@
 - 키워드 인자(keyword argument)와 인자의 기본값(default parameter value)의 = 붙여 쓰기
 
 추가작성중
-
+#### Jupyter
+셀 삭제 복구 : ESC + Z
 ## 다른 이슈
 - 3.5 : type hint (typing ,mypy)
 - 3.11.0b4 : Faster CPython : 이전 버전에 비해 (3.10) 전반적인 실행 속도가 10%~60% 정도, 평균적으로는 25% 정도 빨라짐
