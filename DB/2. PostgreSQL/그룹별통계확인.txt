@@ -1,0 +1,16 @@
+select small.*,'왼쪽:300초보다작음//오른쪽은300초보다 큼' as "나눈기준",big.*
+from (
+select "SIGNALNAME",AVG("TIMESPAN")::int,count("TIMESPAN"),min("TIMESPAN"),max("TIMESPAN")
+from public."I_FCLTS_SGNL"
+where "SIGNALNAME" like 'PartsNumAll_path1_MCT%'
+and "TIMESPAN"::numeric <'300'
+group by "SIGNALNAME"
+) small
+left join 
+(
+select "SIGNALNAME",AVG("TIMESPAN")::int,count("TIMESPAN"),min("TIMESPAN"),max("TIMESPAN")::int
+from public."I_FCLTS_SGNL"
+where "SIGNALNAME" like 'PartsNumAll_path1_MCT%'
+and "TIMESPAN"::numeric >'300'
+group by "SIGNALNAME"
+) big on small."SIGNALNAME"= big."SIGNALNAME"
