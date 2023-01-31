@@ -6,6 +6,7 @@
       Docker version : 20.10.21, build baeda1f
       CONTAINER Name : jsh
        : 아나콘다, cuda11.2, cudnn8.1, tensorflow=2.10.0
+       : pyspark Test(postgreSql)
 
 
 # Coding
@@ -32,7 +33,7 @@
 
 ## DB
 1. MongoDB : UTC, KST 쉽게 Select하는 패키지 만들기,sourcedefender 라이브러리(암호화)
-2. PostgreSQL : DB연결 및 BETWEEN, 현재 상태 값 테이블 로직
+2. PostgreSQL : DB연결 및 BETWEEN, 현재 상태 값 테이블 로직, pyspark
 3. HIVE : DB연결 및 SELECT
 4. ORACLE : 시노님관련 이슈 해결
 
