@@ -8,7 +8,12 @@
        : 아나콘다, cuda11.2, cudnn8.1, tensorflow=2.10.0
        : pyspark Test(postgreSql)
 
-
+# 도커(Airflow)
+      Airflow compose up을 사용함 
+      참고url  :https://it-is-my-life.tistory.com/21
+       : url에서는 입맛대로 바꾸기 힘들어서 새로 추가함 port 설정이나 airflow 컨테이너가 여러개 나눠져있어서, 패키지 설치시 문제점이 발생함
+       : 만든 부분에 대한 장점, Airflow 한 도커로 통일로 쉽게 패키지 설치 가능,  추후 pip install -r 을 통해서 쉽게 관리 가능할 것으로 보임. PostgresqlDB 또한 컨테이너를 통해서 연동시켜둠
+       
 # Coding
 1. 클린코드 관련
 2. Process & Thread 폴더 - 파이썬 멀티 프로세싱 (함수 FOR문 돌리기 - multiprocessing 라이브러리 - pool 활용)
