@@ -1,0 +1,9 @@
+jupyter
+pyarrow
+seaborn
+pandas
+joblib
+scikit-learn
+confluent_kafka
+psycopg2-binary
+python-dotenv

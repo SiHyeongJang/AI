@@ -1,0 +1,5 @@
+neuralprophet==0.4.2
+pytorch-lightning==1.6.0
+holidays==0.13
+tensorflow-cpu
+
