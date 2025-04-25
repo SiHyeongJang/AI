@@ -66,8 +66,45 @@
         )
         and "BDNS_FRCST_TYPE" ='6' -- 마지막 필터 조건
 
+# DB Insert 속도 개선 // Pandas DataFrame을 TSV 형식으로 메모리에 변환 (메모리 아웃 발생 방지, 속도 개선)
 
-# 쿼리 날리기 - 현재 상태를 가지고 있는 테이블 정의
+        from sqlalchemy import create_engine
+        import psycopg2
+        
+        DB_HOST = import_data_config["host"]
+        DB_PORT = import_data_config["port"]
+        DB_NAME = import_data_config["dbname"]
+        DB_USER = import_data_config["user"]
+        DB_PASSWORD = import_data_config["password"]
+        
+        # PostgreSQL 연결 엔진 생성
+        engine = create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+        
+        conn = engine.raw_connection()
+        cursor = conn.cursor()
+        
+        # 청크 단위 설정
+        chunk_size = 1_000_000
+        
+        # 청크로 나누어서 INSERT
+        #스키마,테이블명,데이터프레임명 변경하여 사용 
+        for i, chunk in enumerate(np.array_split(데이터프레임명, len(데이터프레임명) // chunk_size + 1)):
+            output = io.StringIO()
+            chunk.to_csv(output, sep='\t', header=False, index=False)
+            output.seek(0)
+            
+            copy_sql = 'COPY "스키마"."테이블명" FROM STDIN WITH (FORMAT csv, DELIMITER E\'\\t\')'
+            cursor.copy_expert(copy_sql, output)
+            print(f"Chunk {i+1} inserted... ({len(chunk)} rows)")
+        
+        # 완료 처리
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+
+
+# 추후 작성 예정 // 쿼리 날리기 - 현재 상태를 가지고 있는 테이블 정의
 ## 현재 상태(max값)를 제외한 데이터 제거, update 기준 정의
 
 ### ETL 시 HH12, HH24 잘 써야 데이터 정합성에서 문제가 안 생김
