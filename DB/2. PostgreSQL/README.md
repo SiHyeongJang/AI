@@ -101,7 +101,11 @@
         conn.commit()
         cursor.close()
         conn.close()
+# FDW 예제 추가, 파이썬에서 읽어와서 처리하는 시간보다 데이터가 원격에 있을 때 그 부분을 fdw로 db로 처리해서 insert하는 부분
 
+        파일명 : db_job2_fdw_upload.ipynb
+        postgreDB용 파이썬에서 처리하는것보다 속도가 빠른듯 함
+        
 
 
 # 추후 작성 예정 // 쿼리 날리기 - 현재 상태를 가지고 있는 테이블 정의
