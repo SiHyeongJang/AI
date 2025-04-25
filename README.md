@@ -9,10 +9,13 @@
        : pyspark Test(postgreSql)
 
 # 도커(Airflow)
-      Airflow compose up을 사용함 
+      Airflow docker-compose up --build로 변경
       참고url  :https://it-is-my-life.tistory.com/21
-       : url에서는 입맛대로 바꾸기 힘들어서 새로 추가함 port 설정이나 airflow 컨테이너가 여러개 나눠져있어서, 패키지 설치시 문제점이 발생함
-       : 만든 부분에 대한 장점, Airflow 한 도커로 통일로 쉽게 패키지 설치 가능,  추후 pip install -r 을 통해서 쉽게 관리 가능할 것으로 보임. PostgresqlDB 또한 컨테이너를 통해서 연동시켜둠
+       : url에서는 입맛대로 바꾸기 힘들어서 새로 추가함 port 설정이나 airflow 컨테이너가 여러개 나눠져있어서, 패키지 설치시 문제점이 발생함, 모델 생성시 -> 한 컨테이너에서 하도록 변경(airflow+jupyter)
+       : 만든 부분에 대한 장점, Airflow 한 도커로 통일로 쉽게 패키지 설치 가능,  추후 pip install -r 을 통해서 쉽게 관리 가능할 것으로 보임. PostgresqlDB 연계완료.
+       : .env 파일에서 port, docker name 설정 가능하도록 변경
+       : GPU 테스트 완료 (docker-compose version 2+)
+       : postgre DB를 볼륨 마운트로 사용 -> 로드시 오래 걸릴시 도커 네임 스페이스로 변경
        
 # Coding
 1. 클린코드 관련
