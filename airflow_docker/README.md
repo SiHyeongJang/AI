@@ -2,9 +2,9 @@
 + Python
 
 # 개발환경정보
-docker --version : Docker version 24.0.2, build cb74dfc
-docker-compose --version : Docker Compose version v2.24.5
-lsb_release -a : Ubuntu 18.04.6 LTS
+docker --version : Docker version 24.0.2, build cb74dfc <br/>
+docker-compose --version : Docker Compose version v2.24.5 <br/>
+lsb_release -a : Ubuntu 18.04.6 LTS<br/>
 
 # 환경 구성
 proj 폴더 - 5개의 폴더(컨테이너로 구성)
