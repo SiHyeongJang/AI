@@ -41,7 +41,7 @@ networks:  appnet <br/>
 # db관련
 db : MySQL <br/>
 table : appdb.jobs <br/>
-컬럼 : <br/>
+주요 컬럼 : <br/>
 accepted : TINYINT(1)   NOT NULL DEFAULT 0   ## 즉시 응답의 Boolean(접수 성공 여부): /submit이 "ok": true면 1, 아니면 0 (Boolean)  <br/>
 success : TINYINT(1)   NOT NULL DEFAULT 0  ## 최종 파이프라인 성공 여부(Boolean) <br/>
 summary : 요약기능 <br/>
@@ -49,11 +49,15 @@ summary : 요약기능 <br/>
 
 
 # 실행전 확인사항
-IP, HOST_PORT, CONTAINER NAME 겹칠시 docker-compose.yml에서 수정이 필요함 <br/>
+IP, HOST_PORT, CONTAINER NAME 겹칠시 proj/docker-compose.yml에서 수정이 필요함 <br/>
+proj/폴더/dockerr-compose.yml은 컨테이너 1개씩 테스트시 실행 <br/>
 
 # 구동 순서
 첨부된 proj 파일 압축해제 -> 리눅스 환경 + docker compose가 가능한 개발 환경 <br/>
 테스트할 환경 사용자가 docker-compose 및 파일권한이 있어야 함(보안에 따라서 권한 변경 ex. sudo chmod -R 777 proj/ 입력) <br/>
+압축 풀린/ proj/폴더 내에서 아래의 명령어 실행 <br/>
+ls 명령어 확인후 compose 실행 <br/>
+출력된 결과 : business_server  captioner_server  db  detector_server  docker-compose.yml  gpt_server <br/>
 docker-compose up --build <br/>
 (버전에 따라서 docker compose up --build) ## -d 옵션 등은 편하신대로하시면 됩니다. <br/>
 테스트 실행전 확인 명령어 : curl -i http://172.88.0.10:9000 <br/>
