@@ -21,11 +21,12 @@ docker-compose.yml에서 각 서버들을 실행 app.py(이름은 각기 다를 
 + 디텍팅서버에서 TEST -> 비지니스서버[ 디텍팅 모델 -> 캡셔닝 모델 -> gpt2 요약 ] -> db(MySQL)
 
 # 간단한 분석 내용
-detector 모델 중 ~ l 모델이 dog + bench로 유일하게 2개로 디텍팅 되었습니다. <br/>
+detector 모델 중 yolov12l.pt 모델이 dog + bench로 유일하게 2개로 디텍팅 되었습니다. <br/>
 -> 하지만, <br/>
 captioner 모델만 썼을 경우  : a dog laying on top of a wooden bench <br/>
 디텍팅 모델 -> 캡셔닝 모델의 output : black and white dog on ground <br/>
-이렇게 나왔지만... 일단 디텍팅 모델 -> 캡셔닝 모델 -> gpt2 요약으로 진행했습니다. (각 서버의 옵션은 기본) <br/>
+captioner 모델만 썼을 경우가 개인적 판단으론 더 높은 점수를 받을 것 같음<br/>
+이렇게 나왔지만... 일단 요구사항대로 진행, 디텍팅 모델 -> 캡셔닝 모델 -> gpt2 요약으로 진행했습니다. (각 서버의 옵션은 기본) <br/>
 
 # 네트워크 정보
 ip는 docker-compose 내부 ip로 동작할 수 있도록 구성 (임의로 172.88.0.0번대로 구성했는데 이미 ip가 있을 경우 변경할 필요가 있음) <br/>
@@ -72,7 +73,7 @@ content-type: application/json <br/>
 테스트는 detector 컨테이너에서 진행하도록 했습니다. <br/>
 도커 진입 명령어 : docker exec -it detector bash <br/>
 제공주신 이미지로 테스트 명령어 : python test_submit.py <br/> <br/>
-추가로, 이미지 변경해서 테스트 원할시 : proj/detector_server/yolov12/image <- 이미지 파일 변경 <br/>
++ 추가로, 이미지 변경해서 테스트 원할시 : proj/detector_server/yolov12/image <- 이미지 파일 변경 <br/>
 
 # 진행결과 확인
 테스트 진행 결과는 db에 저장됩니다. 진행중인 내용도 MySQL로 확인 가능. <br/>
