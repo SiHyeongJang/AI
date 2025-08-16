@@ -61,7 +61,7 @@ ls 명령어 확인후 compose 실행 <br/>
 출력된 결과 : business_server  captioner_server  db  detector_server  docker-compose.yml  gpt_server <br/>
 docker-compose up --build <br/>
 (버전에 따라서 docker compose up --build) ## -d 옵션 등은 편하신대로하시면 됩니다. <br/>
-테스트 실행전 확인 명령어 : curl -i http://172.88.0.10:9000 <br/>
++ 테스트 실행전 확인 명령어 : curl -i http://172.88.0.10:9000 (or curl -i http://172.88.0.10:9000/live) <br/>
 -> 아래와 같이 나오면 테스트 진행 가능 <br/>
 HTTP/1.1 200 OK <br/>
 date: Fri, 15 Aug 2025 14:18:05 GMT <br/>
