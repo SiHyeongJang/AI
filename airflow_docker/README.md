@@ -52,7 +52,8 @@ summary : 요약기능 <br/>
 IP, HOST_PORT, CONTAINER NAME 겹칠시 docker-compose.yml에서 수정이 필요함 <br/>
 
 # 구동 순서
-첨부된 proj 파일 압축해제 -> 리눅스 환경 + docker환경 <br/>
+첨부된 proj 파일 압축해제 -> 리눅스 환경 + docker compose가 가능한 개발 환경 <br/>
+테스트할 환경 사용자가 docker-compose 및 파일권한이 있어야 함(보안에 따라서 권한 변경 ex. sudo chmod -R 777 proj/ 입력) <br/>
 docker-compose up --build <br/>
 (버전에 따라서 docker compose up --build) ## -d 옵션 등은 편하신대로하시면 됩니다. <br/>
 테스트 실행전 확인 명령어 : curl -i http://172.88.0.10:9000 <br/>
